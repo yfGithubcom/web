@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+    <title>crud界面</title>
+    <link rel="stylesheet" href="css/crud.css">
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/register.js"></script>
+    <script src="js/crud.js"></script>
+</head>
+<body>
+    <div id="pageBody">
+        <div id="search">
+            <form id="searchFrom">
+                <input type="text" id="userName" name="userName" placeholder="输入用户名"/>
+                <input type="text" id="chrName" name="chrName" placeholder="输入姓名"/>
+                <input type="text" id="email" name="mail" placeholder="输入邮箱地址"/>
+                <input type="text" id="provinceName" name="provinceName" placeholder="输入省份"/>
+            </form>
+            <div id="bt">
+                <a href="#" id="btSearch">查找</a>
+                <a href="#" id="btClear">清空</a>
+                <a href="#" id="btAdd">增加</a>
+                <a href="#" id="btDelete">删除</a>
+                <a href="#" id="btUpdate">修改</a>
+            </div>
+        </div>
+
+        <div id="fade" class="black_overlay" onclick="CloseDiv('MyDiv','fade')"></div>
+        <div id="MyDiv" class="white_content">
+            <div style="text-align: right; height: 20px;">
+                <span style="font-size: 24px; cursor: pointer;" title="点击关闭" onclick="CloseDiv('MyDiv','fade')">×</span>
+            </div>
+            <div>
+                <p><input id="userName2" name="userName2" type="text" placeholder="用户名"/>
+                    <p><span  id="userNameError" style="color: red;"></span></p>
+                </p>
+                <p><input id="name" name="name" type="text" placeholder="真实姓名"/>
+                    <p><span id="nameError" style="color: red;"></span></p>
+                </p>
+                <p><input id="email2" name="email2" type="text" placeholder="邮箱"/>
+                    <p><span id="emailError" style="color: red;"></span></p>
+                </p>
+                <p><select id="province" name="provinceCode">
+                    <option value="">请选择省份</option>
+                </select>
+                <span id="provinceError" style="color: red;"></span>
+            </p>
+            <p><select id="city" name="cityCode">
+                <option value="">请选择城市</option>
+            </select>
+            <span id="cityError" style="color: red;"></span>
+            </p>
+            <p><input id="password" name="password" type="password" placeholder="密码" />
+                <p>  <span id="passwordError" style="color: red;"></span> </p> 
+               </p>
+               <p><input id="passwordEnd" name="passwordEnd" type="password" placeholder="确认密码" />
+                <p>  <span id="passwordEndError" style="color: red;"></span> </p> 
+               </p>
+               <p><input type="text" id="action" name="action" hidden/></p>
+               <p>
+                <input id="btLogin"  onclick="jqAjaxRegister()" type="button" value="确&nbsp;&nbsp;定" />
+                <span class="error" id="checkError" style="color: red;"></span>
+            </p>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th width="40"><input type="checkbox" id="ckAll" title="选择"/></th>
+                    <th class="bg" id="sortByUserName" data="userName">用户名</th>
+                    <th width="110">中文名</th>
+                    <th>邮箱</th>
+                    <th width="70" class="bg" id="sortByProvinceName" data="provinceName">省份</th>
+                    <th width="70">城市</th>
+                    <th width="120">操作</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+
+        <div class="paging">
+            <div class="pageSize">每页
+                <select id="pageSize">
+                    <option>5</option>
+                    <option selected>10</option>
+                    <option>20</option>
+                </select>，共
+                <span id="total"></span>条数据，
+                <span id="pageNumber" style="color: red;">1</span>页/ <span id="pageCount"></span>页
+            </div>
+            <div class="pageNav">
+                <a href="#" id="first">首页</a>
+                <a href="#" id="back">上一页</a>
+                <a href="#" id="next">下一页</a>
+                <a href="#" id="last">尾页</a>
+            </div>
+        </div>
+    </div>
+
+</body>
